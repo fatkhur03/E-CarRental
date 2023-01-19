@@ -1,0 +1,69 @@
+
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Form Daftar Peminjam <b>E-</b>CarRental</h1>
+          <hr>
+
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><?php 
+              date_default_timezone_set('Asia/Jakarta'); // Zona Waktu indonesia
+              echo date('<b>l, d-m-Y | H:i</b>'); //kombinasi jam dan tanggal
+              ?></li>
+          </ol>
+        </div><!-- /.col -->
+      </div>
+      <a class="btn btn-lg btn-primary" href="?url=tambah_peminjam"><i class="fa fa-plus"></i> Tambah</a><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+    <div class="row">
+      
+      <div class="col-lg-12" style="padding:30px">
+      <div class="card shadow">
+        <div class="card-header">
+          <h6 class="m-0 font-weight-bold text-primary">List Peminjam</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+                <table id="datatable" class="table table-bordered table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama</th>
+                      <th>Kontak Person</th>
+                      <th>No HP</th>
+                      <th>Kategori</th>
+                      <th>Email</th>
+                      <th>Edit</th>
+                      <th>Hapus</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table">
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+  <script src="crud_peminjam.js"></script>
+  <script>
+    allData()
+  </script>
+  <script>
+    function clearData() {
+      document.getElementById('form').reset()
+      document.getElementById('id').value = ""
+    }
+  </script>
+
+ 

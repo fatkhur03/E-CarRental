@@ -1,0 +1,211 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Daftar Kendaraan <b>E-</b>CarRental</h1>
+        <hr>
+
+
+
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><?php 
+            date_default_timezone_set('Asia/Jakarta'); // Zona Waktu indonesia
+            echo date('<b>l, d-m-Y | H:i</b>'); //kombinasi jam dan tanggal
+            ?></li>
+        </ol>
+      </div><!-- /.col -->
+    </div>
+    <a class="btn btn-lg btn-primary" href="?url=tambah_kendaraan"><i class="fa fa-plus"></i> Tambah</a><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="row">
+  
+
+  <div class="col-sm-12" style="padding:20px">
+    <div class="card shadow">
+      <div class="card-header">
+        <h6 class="m-0 font-weight-bold text-primary">list Kendaraan</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="tblData" class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kendaraan</th>
+              <th>Kategori</th>
+              <th>Fasilitas</th>
+              <th>Merk Kendaraan</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>
+
+
+
+
+
+
+<script>
+  var emptyRow = "<tr><td colspan='6' class='text-center'> No Records Available</td></tr>";
+  $(document).ready(function () {
+    loadDataFromLocal();
+    $('#tblData').on('click', '.btn-edit', function () {
+      debugger;
+      const name = $(this).parent().parent().find(".txtName").html();
+      const contact = $(this).parent().parent().find(".txtContact").html();
+      const altContact = $(this).parent().parent().find(".txtAltNo").html();
+      const address = $(this).parent().parent().find(".txtAddress").html();
+      const id = $(this).parent().parent().find(".txtName").attr("data-id");
+      $("#txtName").val(name);
+      $("#txtContact").val(contact);
+      $("#txtAltNo").val(altContact);
+      $("#txtAddress").val(address);
+      $("#txtId").val(id);
+      $("#btnSave").text("Update");
+    });
+
+    $('#tblData').on('click', '.btn-delete', function () {
+      debugger;
+      const id = $(this).parent().parent().find(".txtName").attr("data-id");
+      deleteDataFromLocal(id);
+    });
+
+    $("#btnSave").click(function () {
+      debugger;
+      if ($("#txtId").val() == '') {
+        addDataToLocal();
+      } else {
+        updateDataFromLocal();
+      }
+    });
+
+    $("#btnClear").click(function () {
+      debugger;
+      clearForm();
+    });
+  });
+
+  function clearForm() {
+    debugger;
+    $("#txtName").val("");
+    $("#txtContact").val("");
+    $("#txtAltNo").val("");
+    $("#txtAddress").val("");
+    $("#btnSave").text("Add");
+  }
+
+  function addEmptyRow() {
+    debugger;
+    if ($("#tblData tbody").children().children().length == 0) {
+      $("#tblData tbody").append(emptyRow);
+    }
+  }
+
+  function loadDataFromLocal() {
+    debugger;
+    let localData = localStorage.getItem('localData');
+    if (localData) {
+      $("#tblData tbody").html("");
+      let localArray = JSON.parse(localData);
+      let index = 1;
+      localArray.forEach(element => {
+        let dynamicTR = "<tr>";
+        dynamicTR = dynamicTR + "<td> " + index + "</td>";
+        dynamicTR = dynamicTR + "<td class='txtName'  data-id=" + element.id + ">" + element.name + "</td>";
+        dynamicTR = dynamicTR + "<td class='txtContact'>" + element.contact + "</td>";
+        dynamicTR = dynamicTR + "<td class='txtAltNo'>" + element.altContact + "</td>";
+        dynamicTR = dynamicTR + "<td class='txtAddress'>" + element.address + "</td>";
+        dynamicTR = dynamicTR + "    <td class='tdAction text-center'>";
+        dynamicTR = dynamicTR +
+        "        <a href='?url=detail_kendaraan' class='btn btn-sm btn-primary'> Detail</a>";
+        dynamicTR = dynamicTR + "        <a href='?url=edit_kendaraan' class='btn btn-sm btn-success btn-edit'> Edit</a>";
+        dynamicTR = dynamicTR + "        <button class='btn btn-sm btn-danger btn-delete'> Delete</button>";
+        dynamicTR = dynamicTR + "    </td>";
+        dynamicTR = dynamicTR + " </tr>";
+        $("#tblData tbody").append(dynamicTR);
+        index++;
+      });
+    }
+    addEmptyRow();
+  }
+
+  function addDataToLocal() {
+    debugger;
+    let localData = localStorage.getItem('localData');
+    if (localData) {
+      let localArray = JSON.parse(localData);
+      const obj = {
+        id: localArray.length + 1,
+        name: $("#txtName").val(),
+        contact: $("#txtContact").val(),
+        altContact: $("#txtAltNo").val(),
+        address: $("#txtAddress").val()
+      };
+      localArray.push(obj);
+      localStorage.setItem('localData', JSON.stringify(localArray));
+      loadDataFromLocal();
+    } else {
+      const arryObj = [];
+      const obj = {
+        id: 1,
+        name: $("#txtName").val(),
+        contact: $("#txtContact").val(),
+        altContact: $("#txtAltNo").val(),
+        address: $("#txtAddress").val()
+      };
+      arryObj.push(obj);
+      localStorage.setItem('localData', JSON.stringify(arryObj));
+      loadDataFromLocal();
+    }
+    clearForm();
+  }
+
+  function updateDataFromLocal() {
+    debugger;
+    let localData = localStorage.getItem('localData');
+    let localArray = JSON.parse(localData);
+    const oldRecord = localArray.find(m => m.id == $("#txtId").val());
+    oldRecord.name = $("#txtName").val();
+    oldRecord.contact = $("#txtContact").val();
+    oldRecord.altContact = $("#txtAltNo").val();
+    oldRecord.address = $("#txtAddress").val();
+    localStorage.setItem('localData', JSON.stringify(localArray));
+    loadDataFromLocal();
+    clearForm();
+  }
+
+  function deleteDataFromLocal(id) {
+    debugger;
+    let localData = localStorage.getItem('localData');
+    let localArray = JSON.parse(localData);
+    let i = 0;
+    while (i < localArray.length) {
+      if (localArray[i].id === Number(id)) {
+        localArray.splice(i, 1);
+      } else {
+        ++i;
+      }
+    }
+    localStorage.setItem('localData', JSON.stringify(localArray));
+    loadDataFromLocal();
+  }
+</script>

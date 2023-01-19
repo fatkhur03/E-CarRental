@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>E-CarRental</title>
+    <link rel="icon" href="https://i.postimg.cc/Qx21sctS/E-Car-Rental-1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
+</head>
+
+<body>
+    <div class="container-fluid text-dark text-bg-dark">
+        <h2 class="text-center text-white text-bg-dark pt-xxl-2"
+            style="margin-bottom: 3px;font-family: 'Roboto Slab', serif;font-weight: bold;">E-CarRental Delivery you
+            Need
+        </h2>
+        <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
+            <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler"
+                    data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse text-center" id="navcol-5">
+                    <ul class="navbar-nav text-center me-auto">
+                        <li class="nav-item"><a class="nav-link active" href="index.html"
+                                style="font-size: 18px;">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="produk.html">Produk &amp; Layanan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                        <li class="nav-item"><a class="nav-link" href="berita.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tentang.html">Contact Us</a></li>
+                    </ul>
+                    <ul class="navbar-nav text-center ms-auto">
+                        <li class="nav-item"><input type="text" style="margin-right: 4px;padding-top: 5px;width: 101px;"
+                                placeholder="Search Item" class="pt-sm-1 pb-sm-2 pe-md-0"><button
+                                class="btn btn-primary me-xxl-4 me-xl-3 mb-2" type="button"><i class="fas fa-search"
+                                    style="font-size: 24px;"></i></button></li>
+                    </ul><a class="btn btn-primary ms-md-2 ms-sm-5 me-sm-5 mt-sm-2" role="button" href="login.html">Login</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class=""><br>
+            <h3>Booking Kendaraan</h3>
+            <form id="form">
+                <input type="hidden" name="id" id="id">
+                <table class="table">
+                    <tr>
+                        <td>pilih kendaraan</td>
+                        <td>:</td>
+                        <td>
+                            <select name="kendaraan" id="kendaraan" class="form-control" required="true">
+                                <option value="">--pilih--</option>
+                                <option value="Mobil Avanza  ">Mobil Avanza</option>
+                                <option value="Bus Juragan 99  ">Bus Juragan 99 </option>
+                                <option value="Motor Vario 2016  ">Motor Vario 2016 </option>
+                                <option value="Bus Pandawa 87  ">Bus Pandawa 87 </option>
+                                <option value="Mobil Kijang Innova  ">Mobil Kijang Innova</option>
+                                <option value="Motor beat 2021  ">Motor beat 2021 </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nama Peminjam</td>
+                        <td>:</td>
+                        <td>
+                            <input type="text" placeholder="Nama Peminjam" class="form-control" name="peminjam"
+                                id="peminjam" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kategori Peminjam</td>
+                        <td>:</td>
+                        <td>
+                            <input type="radio" name="kategori" id="kategori" value="Pribadi" required="true"> Pribadi
+                            <input type="radio" name="kategori" id="kategori" value="Organisasi"> Organisasi
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Deskripsi</td>
+                        <td>:</td>
+                        <td>
+                            <textarea class="form-control" type="text" placeholder="Deskripsi" class="" rows="2"
+                                cols="70" name="deskripsi" id="deskripsi" required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Pinjam</td>
+                        <td>:</td>
+                        <td>
+                            <input type="date" name="tanggal_pinjam" id="tanggal_pinjam" class="" required="true"> s.d
+                            <input type="date" name="sampai_dengan" id="sampai_dengan" class="" required="true">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kontak Person</td>
+                        <td>:</td>
+                        <td>
+                            <input type="text" placeholder="Kontak Person" class="form-control" name="kontak_person"
+                                id="kontak_person" required>
+                        </td>
+                    </tr>
+
+                    </tr>
+                    <tr>
+                        <td>Telepon/HP</td>
+                        <td>:</td>
+                        <td>
+                            <input type="number" placeholder="No Telepon" class="form-control" name="telepon"
+                                id="telepon" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td>
+                            <input type="email" placeholder="Email" class="form-control" name="email" id="email"
+                                required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-primary" type="button" onclick="save()">Save</button>
+                            <button class="btn btn-warning" type="reset">Reset</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+    <footer class="text-center bg-dark" style="margin-top: 28px;">
+        <div class="container text-white py-4 py-lg-5">
+            <p class="text-start text-white mb-0" style="float: right; "><a target="_blank" href="https://kreasi.nurulfikri.ac.id/mfat22090si/E-CarRental-v2/" style="text-decoration: none; color: white;">E-CarRental-v2</a></p>
+            <p class="text-start text-white mb-0">Develop By Mahasiswa STT- NF @2022</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="admin/crud_booking/all_data.js"></script>
+    <script src="admin/crud_booking/save.js"></script>
+    <script src="admin/crud_booking/find.js"></script>
+    <script src="admin/crud_booking/remove.js"></script>
+
+    <script>
+        allData()
+    </script>
+    <script>
+        function clearData() {
+            document.getElementById('admin/crud_booking/form').reset()
+            document.getElementById('admin/crud_booking/id').value = ""
+        }
+    </script>
+
+</body>
+
+</html>

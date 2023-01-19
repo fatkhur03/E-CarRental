@@ -1,0 +1,104 @@
+
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Form Daftar Peminjam <b>E-</b>CarRental</h1>
+          <hr>
+
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><?php 
+              date_default_timezone_set('Asia/Jakarta'); // Zona Waktu indonesia
+              echo date('<b>l, d-m-Y | H:i</b>'); //kombinasi jam dan tanggal
+              ?></li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+    <div class="row">
+      <div class="col-lg-4" style="padding:30px">
+        <div class="card shadow">
+          <div class="card-header">
+            <h6 class="m-0 font-weight-bold text-primary">Input Data Peminjam</h6>
+          </div>
+          <div class="card-body">
+            <form id="form">
+              <input type="hidden" name="id" id="inputBookId">
+              <label for="inputBookNama">Nama Peminjam</label>
+              <input type="text" placeholder="Nama Peminjam" class="form-control" id="inputBookNama" required>
+              <br>
+              <label for="inputBookTitle">Kontak Person</label>
+              <input type="text" placeholder="Kontak Person" class="form-control" id="inputBookPerson" required>
+              <br>
+              <label for="inputBookTitle">No Telepon/HP</label>
+              <input type="number" placeholder="No Telepon/HP" class="form-control" id="inputBookTitle" required>
+              <br>
+              <label for="inputBookAuthor">Kategori</label>
+              <select id="inputBookAuthor" class="form-control" required="true">
+                <option value="">--pilih--</option>
+                <option value="pribadi">Pribadi </option>
+                <option value="organisasi">Organisasi</option>
+              </select>
+              <br>
+              <label for="inputBookYear">Email</label>
+              <input type="email" placeholder="Email" class="form-control" id="inputBookYear" required>
+              <br>
+              <input id="inputBookIsComplete" type="hidden">
+             
+              <button class="btn btn-sm btn-success" type="button" onclick="save()"><i class="fa fa-plus"></i> Save</button>
+              <button class="btn btn-sm btn-danger" type="button" onclick="clearData()"> <i class="fa fa-times"></i> Reset</button>
+              <a class="btn btn-sm btn-info" href="?url=daftar_peminjam" ><i class="fa fa-eye"></i> Views</a>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8" style="padding:30px">
+      <div class="card shadow">
+        <div class="card-header">
+          <h6 class="m-0 font-weight-bold text-primary">List Peminjam</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+                <table id="datatable" class="table table-bordered table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama</th>
+                      <th>Kontak Person</th>
+                      <th>No HP</th>
+                      <th>Kategori</th>
+                      <th>Email</th>
+                      <th>Edit</th>
+                      <th>Hapus</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table">
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+  <script src="crud_peminjam.js"></script>
+  <script>
+    allData()
+  </script>
+  <script>
+    function clearData() {
+      document.getElementById('form').reset()
+      document.getElementById('id').value = ""
+    }
+  </script>
+
+ 

@@ -1,0 +1,118 @@
+
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">manajemen Akun <b>E-</b>CarRental</h1>
+                    <hr>
+
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><?php 
+                            date_default_timezone_set('Asia/Jakarta'); // Zona Waktu indonesia
+                            echo date('<b>l, d-m-Y | H:i</b>'); //kombinasi jam dan tanggal
+                            ?></li>
+                    </ol>
+                </div><!-- /.col -->
+            </div>
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+    <div class="row">
+        
+
+        <div class="col-sm-12">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Akun</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Username</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>fathur</td>
+                                <td>admin</td>
+                                <td>administrator</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Edit</a>
+                                    <a href="?url=manajemen_akun"
+                                        class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')"><i
+                                            class="fa fa-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>2</td>
+                                <td>Rizqi Naufal</td>
+                                <td>xyiqi</td>
+                                <td>user</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Edit</a>
+                                    <a href="?url=manajemen_akun"
+                                        class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')"><i
+                                            class="fa fa-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Nita</td>
+                                <td>xynitt</td>
+                                <td>user</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Edit</a>
+                                    <a href="?url=manajemen_akun"
+                                        class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')"><i
+                                            class="fa fa-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Wulan</td>
+                                <td>xylann</td>
+                                <td>user</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Edit</a>
+                                    <a href="?url=manajemen_akun"
+                                        class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')"><i
+                                            class="fa fa-trash"></i> Hapus</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('readUrl').addEventListener('change', function () {
+            if (this.files[0]) {
+                var picture = new FileReader();
+                picture.readAsDataURL(this.files[0]);
+                picture.addEventListener('load', function (event) {
+                    document.getElementById('uploadedImage').setAttribute('src', event.target.result);
+                    document.getElementById('uploadedImage').style.display = 'block';
+                });
+            }
+        });
+    </script>
+
+
+     

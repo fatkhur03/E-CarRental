@@ -1,0 +1,64 @@
+
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Detail Akun <b>E-</b>CarRental</h1>
+          <hr>
+
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><?php 
+              date_default_timezone_set('Asia/Jakarta'); // Zona Waktu indonesia
+              echo date('<b>l, d-m-Y | H:i</b>'); //kombinasi jam dan tanggal
+              ?></li>
+          </ol>
+        </div><!-- /.col -->
+      </div>
+      <a href="?url=manajemen_akun" class="btn btn-md btn-info"><i class="fa fa-reply"></i> Kembali</a><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">Detail Akun - Fathur IT</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="https://i.postimg.cc/fT8YhV7C/Whats-App-Image-2022-12-30-at-19-43-34.jpg"
+                            alt="Fakhrul Fanani Nugroho" class="img-thumbnail mb-4">
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table table-borderless">
+                            <tr>
+                                <td>Nama</td>
+                                <td>:</td>
+                                <td><b>M Fatkhurrohman</b></td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td>:</td>
+                                <td><b>Fathur IT</b></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="btn btn-sm btn-warning"
+                            onclick="return confirm('apakah anda yakin?')"><i class="fa fa-pen"></i> Edit</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

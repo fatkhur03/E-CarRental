@@ -1,0 +1,94 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Daftar Transaksi <b>E-</b>CarRental</h1>
+        <hr>
+
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><?php 
+            date_default_timezone_set('Asia/Jakarta'); // Zona Waktu indonesia
+            echo date('<b>l, d-m-Y | H:i</b>'); //kombinasi jam dan tanggal
+            ?></li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+
+
+<div class="card shadow">
+  <div class="card-header">
+    <h6 class="m-0 font-weight-bold text-primary">Daftar Transaksi</h6>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+              <th>No. </th>
+              <th>Kode Booking</th>
+              <th>Merk Mobil</th>
+              <th>Nama </th>
+              <th>Tanggal Sewa </th>
+              <th>Lama Sewa </th>
+              <th>Total Harga</th>
+              <th>Konfirmasi</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>1672377654</td>
+              <td>Avanza</td>
+              <td>Imel</td>
+              <td>2022-12-21</td>
+              <td>1 hari</td>
+              <td>Rp. 200.000</td>
+              <td>Lunas</td>
+              <td>
+                <a class="btn btn-info" href="?url=detail_transaksi/detail1" role="button"><i class="fa fa-eye"></i> Detail</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>1672372039</td>
+              <td>Toyota</td>
+              <td>Nita</td>
+              <td>2022-10-19</td>
+              <td>2 hari</td>
+              <td>Rp. 400.000</td>
+              <td>Sedang di proses</td>
+              <td>
+                <a class="btn btn-info" href="?url=detail_transaksi/detail2" role="button"><i class="fa fa-eye"></i> Detail</a>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>765434500</td>
+              <td>Mini bus</td>
+              <td>Rizqi</td>
+              <td>2022-11-6</td>
+              <td>3 hari</td>
+              <td>Rp. 1.200.000</td>
+              <td>Belum Bayar</td>
+              <td>
+                <a class="btn btn-info" href="?url=detail_transaksi/detail3" role="button"><i class="fa fa-eye"></i> Detail</a>
+              </td>
+            </tr>
+          </tbody>
+          </table>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>

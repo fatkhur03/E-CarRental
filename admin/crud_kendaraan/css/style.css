@@ -1,0 +1,13 @@
+
+
+
+.line{
+    height: 0.05rem;
+    background-color: #ccc;
+}
+@media screen and (min-width: 768px){
+    .table{
+        width: 100% !important;
+        /* margin: auto !important; */
+    }
+}

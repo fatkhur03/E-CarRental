@@ -1,0 +1,180 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Data Booking <b>E-</b>CarRental</h1>
+        <hr>
+
+
+
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><?php 
+              date_default_timezone_set('Asia/Jakarta'); // Zona Waktu indonesia
+              echo date('<b>l, d-m-Y | H:i</b>'); //kombinasi jam dan tanggal
+              ?></li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+
+<div class="row">
+
+</div>
+<div class="card shadow">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="container">
+
+        <form class="form-data" id="form">
+          <input type="hidden" name="id" id="id">
+          <div class="row">
+
+            <div class="col-sm-2">
+              <hr>
+              <div class="form-group">
+                <label>Pilih Kendaraan</label>
+                <select name="kendaraan" id="kendaraan" class="form-control" required="true">
+                  <option value="">--pilih--</option>
+                  <option value="Mobil Avanza  ">Mobil Avanza</option>
+                  <option value="Bus Juragan 99  ">Bus Juragan 99 </option>
+                  <option value="Motor Vario 2016  ">Motor Vario 2016 </option>
+                  <option value="Bus Pandawa 87  ">Bus Pandawa 87 </option>
+                  <option value="Mobil Kijang Innova  ">Mobil Kijang Innova</option>
+                  <option value="Motor beat 2021  ">Motor beat 2021 </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <hr>
+              <div class="form-group">
+                <label>Nama Peminjam</label>
+                <input type="text" placeholder="Nama Peminjam" class="form-control" name="peminjam" id="peminjam"
+                  required>
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <hr>
+              <div class="form-group">
+                <label>Kategori</label><br>
+                <input type="radio" name="kategori" id="kategori" value="Pribadi" required="true"> Pribadi
+                <input type="radio" name="kategori" id="kategori" value="Organisasi"> Organisasi
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <hr>
+              <div class="form-group">
+                <label>Deskripsi Kebutuhan</label>
+                <input type="text" placeholder="Deskripsi" class="form-control" name="deskripsi" id="deskripsi"
+                  required>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <hr>
+              <div class="form-group">
+                <label>Tanggal Pinjam</label>
+                <input type="date" name="tanggal_pinjam" id="tanggal_pinjam" class="form-control" required="true">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <hr>
+              <div class="form-group">
+                <label>Sampai dengan</label>
+                <input type="date" name="sampai_dengan" id="sampai_dengan" class="form-control" required="true">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <hr>
+              <div class="form-group">
+                <label>Kontak Person</label>
+                <input type="text" placeholder="Kontak Person" class="form-control" name="kontak_person"
+                  id="kontak_person" required>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <hr>
+              <div class="form-group">
+                <label>Telepon/HP</label>
+                <input type="number" placeholder="No Telepon" class="form-control" name="telepon" id="telepon" required>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <hr>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="Email" class="form-control" name="email" id="email" required>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary" type="button" onclick="save()">Save</button>
+            <button class="btn btn-warning" type="reset">Reset</button>
+          </div>
+
+        </form>
+        <hr>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-lg-12" style="padding:20px">
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table id="datatable" class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kendaraan</th>
+              <th>Peminjam</th>
+              <th>Kategori</th>
+              <th>Deskripsi</th>
+              <th>Tanggal Pinjam</th>
+              <th>Sampai dengan</th>
+              <th>Kontak</th>
+              <th>Telepon/HP</th>
+              <th>Email</th>
+              <th>Edit</th>
+              <th>Hapus</th>
+            </tr>
+          </thead>
+          <tbody id="table">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="crud_booking/all_data.js"></script>
+<script src="crud_booking/save.js"></script>
+<script src="crud_booking/find.js"></script>
+<script src="crud_booking/remove.js"></script>
+
+<script>
+  allData()
+</script>
+<script>
+  function clearData() {
+    document.getElementById('crud_booking/form').reset()
+    document.getElementById('crud_booking/id').value = ""
+  }
+</script>
